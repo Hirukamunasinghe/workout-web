@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Classification</title>
+</head>
+<body>
+    <h1>Upload an image for classification</h1>
+    <form method="post" action="/classify" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Upload">
+    </form>
+    {% if result %}
+        <div>
+            <h2>Classification Result: {{ result }} with an accuracy of {{ accuracy }}%</h2>
+            <img src="data:image/jpeg;base64,{{ image_data }}" alt="Uploaded Image" style="width: 180px; height: 180px;">
+        </div>
+    {% endif %}
+</body>
+</html>
